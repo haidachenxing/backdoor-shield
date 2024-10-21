@@ -1,0 +1,352 @@
+<!-- http://127.0.0.1:8000/upload/ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Backdoor Shield</title>
+	{% load static %}
+
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<meta name="description" content="Portal - Bootstrap 5 Admin Dashboard Template For Developers">
+	<meta name="author" content="Xiaoying Riley at 3rd Wave Media">
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<!-- FontAwesome JS-->
+	<script defer src="../static/assets/plugins/fontawesome/js/all.min.js"></script>
+	<script src="../static/js/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="../static/plugins/bootstrap-5.3.0-alpha1/css/bootstrap.min.css">
+	<!-- Javascript -->
+	<script src="../static/assets/plugins/popper.min.js"></script>
+	<script src="../static/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<link rel="shortcut icon" href="{% static 'assets/images/shield.ico'%}"> 
+	
+	<!-- Page Specific JS -->
+	<script src="../static/assets/js/app.js"></script>
+
+	<!-- App CSS -->
+	<link id="theme-style" rel="stylesheet" href="../static/assets/css/portal.css">
+	
+
+</head>
+
+<body class="app">
+	 <header class="app-header fixed-top">
+        <div class="app-header-inner">
+	        <div class="container-fluid py-2">
+		        <div class="app-header-content">
+		            <div class="row justify-content-between align-items-center">
+
+				    <div class="col-auto">
+					    <a id="sidepanel-toggler" class="sidepanel-toggler d-inline-block d-xl-none" href="#">
+						    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" role="img"><title>Menu</title><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg>
+					    </a>
+				    </div><!--//col-->
+		            <div class="search-mobile-trigger d-sm-none col">
+			            <svg class="svg-inline--fa fa-magnifying-glass search-mobile-trigger-icon" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="magnifying-glass" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M500.3 443.7l-119.7-119.7c27.22-40.41 40.65-90.9 33.46-144.7C401.8 87.79 326.8 13.32 235.2 1.723C99.01-15.51-15.51 99.01 1.724 235.2c11.6 91.64 86.08 166.7 177.6 178.9c53.8 7.189 104.3-6.236 144.7-33.46l119.7 119.7c15.62 15.62 40.95 15.62 56.57 0C515.9 484.7 515.9 459.3 500.3 443.7zM79.1 208c0-70.58 57.42-128 128-128s128 57.42 128 128c0 70.58-57.42 128-128 128S79.1 278.6 79.1 208z"></path></svg><!-- <i class="search-mobile-trigger-icon fas fa-search"></i> Font Awesome fontawesome.com -->
+			        </div><!--//col-->
+		            <div class="app-search-box col">
+		                <form class="app-search-form">   
+							<input type="text" placeholder="Search..." name="search" class="form-control search-input">
+							<button type="submit" class="btn search-btn btn-primary" value="Search"><i class="fas fa-search"></i></button> 
+				        </form>
+		            </div><!--//app-search-box-->
+
+		            <div class="app-utilities col-auto">
+			            <div class="app-utility-item app-user-dropdown dropdown">
+				            <a class="dropdown-toggle" id="user-dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><img src="D:\study\work\backdoorbench\BackdoorBench-1\djangoproject\djangoapp\static\assets\images\user.png" alt="user profile"></a>
+				            <ul class="dropdown-menu" aria-labelledby="user-dropdown-toggle">
+								
+								<li><a class="dropdown-item" href="settings.html">Settings</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" href="login.html">Log Out</a></li>
+							</ul>
+			            </div><!--//app-user-dropdown-->
+		            </div><!--//app-utilities-->
+		        </div><!--//row-->
+	            </div><!--//app-header-content-->
+	        </div><!--//container-fluid-->
+        </div><!--//app-header-inner-->
+        <div id="app-sidepanel" class="app-sidepanel sidepanel-visible">
+	        <div id="sidepanel-drop" class="sidepanel-drop"></div>
+	        <div class="sidepanel-inner d-flex flex-column">
+		        <a href="#" id="sidepanel-close" class="sidepanel-close d-xl-none">×</a>
+		        <div class="app-branding">
+		            <a class="app-logo" href="{% url 'index'%}"><img class="logo-icon me-2" src="../static/assets/images/app-logo.svg" alt="logo"><span class="logo-text">后门盾</span></a>
+
+		        </div><!--//app-branding-->
+
+			    <nav id="app-nav-main" class="app-nav app-nav-main flex-grow-1">
+				    <ul class="app-menu list-unstyled accordion" id="menu-accordion">
+					    <li class="nav-item">
+					        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+					        <a class="nav-link active" href="{% url 'index'%}">
+						        <span class="nav-icon">
+						        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-house-door" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+		  <path fill-rule="evenodd" d="M7.646 1.146a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5H9.5a.5.5 0 0 1-.5-.5v-4H7v4a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6zM2.5 7.707V14H6v-4a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4h3.5V7.707L8 2.207l-5.5 5.5z"></path>
+		  <path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"></path>
+		</svg>
+						         </span>
+		                         <span class="nav-link-text">Overview</span>
+					        </a><!--//nav-link-->
+					    </li><li class="nav-item">
+					        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+					        <a class="nav-link" href="{% url 'orders'%}">
+						        <span class="nav-icon">
+						        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-card-list" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M14.5 3h-13a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"></path>
+  <path fill-rule="evenodd" d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5z"></path>
+  <circle cx="3.5" cy="5.5" r=".5"></circle>
+  <circle cx="3.5" cy="8" r=".5"></circle>
+  <circle cx="3.5" cy="10.5" r=".5"></circle>
+</svg>
+						         </span>
+		                         <span class="nav-link-text">History</span>
+					        </a><!--//nav-link-->
+					    </li><!--//nav-item-->
+
+					    <!--//nav-item-->
+					    <li class="nav-item has-submenu">
+					        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+					        
+
+					    </li><!--//nav-item-->
+
+
+
+					    <li class="nav-item">
+					        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+					        <a class="nav-link" href="{% url 'charts'%}">
+						        <span class="nav-icon">
+						        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bar-chart-line" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+	  <path fill-rule="evenodd" d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7H7v7h2zm-5 0v-3H2v3h2z"></path>
+	</svg>
+						         </span>
+		                         <span class="nav-link-text">Charts</span>
+					        </a><!--//nav-link-->
+					    </li><!--//nav-item-->
+
+					    <li class="nav-item">
+					        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+					        <a class="nav-link" href="{% url 'help' %}">
+						        <span class="nav-icon">
+						        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-question-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+  <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"></path>
+</svg>
+						         </span>
+		                         <span class="nav-link-text">Help</span>
+					        </a><!--//nav-link-->
+					    </li><!--//nav-item-->
+				    </ul><!--//app-menu-->
+			    </nav><!--//app-nav-->
+			    <div class="app-sidepanel-footer">
+				    <nav class="app-nav app-nav-footer">
+					    <ul class="app-menu footer-menu list-unstyled">
+
+						    <li class="nav-item">
+						        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+						        <a class="nav-link" href="#">
+							        <span class="nav-icon">
+							            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-file-person" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+	  <path fill-rule="evenodd" d="M12 1H4a1 1 0 0 0-1 1v10.755S4 11 8 11s5 1.755 5 1.755V2a1 1 0 0 0-1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z"></path>
+	  <path fill-rule="evenodd" d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
+	</svg>
+							        </span>
+			                        <span class="nav-link-text">License</span>
+						        </a><!--//nav-link-->
+						    </li><!--//nav-item-->
+					    </ul><!--//footer-menu-->
+				    </nav>
+			    </div><!--//app-sidepanel-footer-->
+
+	        </div><!--//sidepanel-inner-->
+	    </div><!--//app-sidepanel-->
+    </header><!--//app-header-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div class="app-wrapper">
+		<div class="app-content pt-3 p-md-3 p-lg-4">
+			<div class="container-xl">
+				<form id="defenseForm" method="post" action="{% url 'execute_defense'%}">
+					{% csrf_token %}
+					{{ form.as_p }}
+					<h1 class="app-page-title">防御中心</h1>
+					<div class="app-card app-card-accordion shadow-sm mb-4">
+						<div class="app-card-header p-4 pb-2 border-0">
+							<h4 class="app-card-title">请选择要实施的防御</h4>
+						</div>
+						<div class="app-card-body p-4 pt-0">
+							<div id="faq1-accordion" class="faq1-accordion faq-accordion accordion">
+								<div class="accordion-item">
+									<h2 class="accordion-header" id="faq1-heading-6">
+										<select id="defense-select" name="defense_algorithm" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+											<option selected disabled>选择一个防御算法</option>
+											<option value="ac">AC</option>
+											<option value="abl">ABL</option>
+											<option value="anp">ANP</option>
+											<option value="ft">FT</option>
+											<option value="fp">FP</option>
+											<option value="nad">NAD</option>
+											<option value="nc">NC</option>
+											<option value="spectral">Spectral</option>
+											<option value="dbd">DBD</option>
+										</select>
+									</h2>
+								</div>
+							</div>
+							<div style="display: flex; justify-content: center; align-items: center;">
+								<label>
+									<div id="defense-text" style="display: none;">
+										<textarea id="defense-textarea" rows="10" cols="100%" style="border:0;border-radius:5px;background-color:rgba(255, 255, 255, 1);"></textarea>
+									</div>
+								</label>
+							</div>
+							<div class="right-bottom">
+								<button type="button" value="Submit" onclick="submitDefenseForm()" class="btn app-btn-primary">运行防御</button></form>
+								<form method="post" action="{% url 'upload_file'%}" enctype="multipart/form-data" id="myForm">
+									{% csrf_token %}
+									{{ form.as_p }}
+									<input type="file" id="fileInput" name="file" style="display: none;">
+									<br><button type="button" class="btn app-btn-primary" onclick="document.getElementById('fileInput').click();">上传文件</button>
+									<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-upload me-2" fill="currentColor"xmlns="http://www.w3.org/2000/svg"></svg>
+								</form>
+							</div>
+						
+						</div>
+					</div>
+				
+				
+			</div>
+		</div>
+	</div>
+	
+	
+	<script>
+		document.getElementById('fileInput').addEventListener('change', function() {
+			var formData = new FormData();
+			formData.append('file', this.files[0]);
+		
+			var xhr = new XMLHttpRequest();
+			xhr.open('POST', "{% url 'upload_file' %}", true);
+			xhr.setRequestHeader('X-CSRFToken', '{{ csrf_token }}');
+			xhr.onload = function() {
+				if (xhr.status === 200) {
+					console.log('File uploaded successfully.');
+					// 处理上传成功的逻辑
+				} else {
+					console.log('File upload failed.');
+					// 处理上传失败的逻辑
+				}
+			};
+			xhr.send(formData);
+		});
+	</script>
+	
+	<script>
+		// JavaScript functions
+		document.addEventListener('DOMContentLoaded', function() {
+			bindDefenseSelectChange();
+		});
+	
+		function bindDefenseSelectChange() {
+			var select = document.getElementById('defense-select');
+			var textarea = document.getElementById('defense-textarea');
+			var defenseText = {
+				'ac': '防御全名：Activation Clustering\n防御阶段：训练后\n防御措施：中毒检测、后门缓解\n输入类型：被污染的数据集\n输出类型：安全的模型、干净的数据\n防御思想：标记目标类的样本将在后门模型的特征空间中形成两个聚类',
+				'abl': '防御全名：Anti-Backdoor Learning\n防御阶段：训练中\n防御措施：中毒检测、后门缓解\n输入类型：被污染的数据集\n输出类型：安全的模型、干净的数据\n防御思想：在训练过程中，有毒样本比干净样本学习得更快',
+				'anp': '防御全名：Adversarial Neuron Pruning Purifies\n防御阶段：训练后\n防御措施：后门识别、后门缓解\n输入类型：被后门攻击的模型、一组干净样本\n输出类型：安全的模型\n防御思想：后门相关神经元对对抗性神经元的扰动敏感',
+				'ft': '防御全名：Fine-Tuning\n防御阶段：训练后\n防御措施：后门缓解\n输入类型：被后门攻击的模型、一组干净样本\n输出类型：安全的模型\n防御思想：对干净数据进行微调可以减轻后门效应',
+				'fp': '防御全名：Fine-Pruning\n防御阶段：训练后\n防御措施：后门识别、后门缓解\n输入类型：被后门攻击的模型、一组干净样本\n输出类型：安全的模型\n防御思想：中毒样品和干净样品的活化路径不同',
+				'nad': '防御全名：Neural Attention Distillation\n防御阶段：训练后\n防御措施：后门缓解\n输入类型：被后门攻击的模型、一组干净样本\n输出类型：安全的模型\n防御思想：对干净数据进行微调可以减轻后门效应',
+				'nc': '防御全名：Neural Cleanse\n防御阶段：训练后\n防御措施：后门检测、触发器识别、后门缓解\n输入类型：被后门攻击的模型、一组干净样本\n输出类型：安全的模型\n防御思想：通过搜索到目标类的捷径来逆转触发器',
+				'spectral': '防御全名：Spectral Signatures\n防御阶段：训练后\n防御措施：后门检测、后门缓解\n输入类型：被污染的数据集\n输出类型：安全的模型、干净的数据\n防御思想：中毒样品和清洁样品的特征表示具有不同的光谱特征',
+				'dbd': '防御全名：Backdoor Defense Via Decoupling The Training Process\n防御阶段：训练中\n输入类型：被污染的数据集\n输出类型：安全的模型、干净的数据\n防御措施：后门检测、后门抑制\n防御思想：由于标准的监督学习，有毒样本会在特征空间中聚集在一起'
+				// Add descriptions for other algorithms here
+			};
+	
+			select.addEventListener('change', function() {
+				var selectedOption = select.value;
+				if (selectedOption in defenseText) {
+					textarea.value = defenseText[selectedOption];
+					document.getElementById('defense-text').style.display = 'block';
+				} else {
+					textarea.value = '';
+					document.getElementById('defense-text').style.display = 'none';
+				}
+			});
+		}
+	
+		function submitDefenseForm() {
+			document.getElementById("defenseForm").submit();
+		}
+	</script>
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+</body>
+
+</html>
+
+
+

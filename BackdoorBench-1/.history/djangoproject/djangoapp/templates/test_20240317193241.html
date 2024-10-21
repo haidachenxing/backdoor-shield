@@ -1,0 +1,165 @@
+<!-- http://127.0.0.1:8000/test/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Example</title>
+    <script src="../static/js/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="../static/plugins/bootstrap-5.3.0-alpha1/css/bootstrap.min.css">
+    <style>
+        h3 {
+            margin-bottom: 5px;
+        }
+        .radio-group {
+            margin-bottom: 15px;
+        }
+        .radio-group input[type="radio"] {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Upload File</h2>
+    <form method="post" action="/test/upload_file" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+        {{ message }}
+    </form>
+
+    <h2>path</h2>
+    <form id="path">
+        {% csrf_token %}
+        <div class="form-group">
+            <h3>数据集：</h3>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="dataset" value="dataset1" id="dataset1">
+                <label class="form-check-label" for="dataset1">Dataset 1</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="dataset" value="dataset2" id="dataset2">
+                <label class="form-check-label" for="dataset2">Dataset 2</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="dataset" value="dataset3" id="dataset3">
+                <label class="form-check-label" for="dataset3">Dataset 3</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="dataset" value="dataset4" id="dataset4">
+                <label class="form-check-label" for="dataset4">Dataset 4</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3>模型：</h3>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="model" value="model1" id="model1">
+                <label class="form-check-label" for="model1">Model 1</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="model" value="model2" id="model2">
+                <label class="form-check-label" for="model2">Model 2</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="model" value="model3" id="model3">
+                <label class="form-check-label" for="model3">Model 3</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="model" value="model4" id="model4">
+                <label class="form-check-label" for="model4">Model 4</label>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <h3>中毒：</h3>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="poison" value="poison1" id="poison1">
+                <label class="form-check-label" for="poison1">Poison 1</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="poison" value="poison2" id="poison2">
+                <label class="form-check-label" for="poison2">Poison 2</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="poison" value="poison3" id="poison3">
+                <label class="form-check-label" for="poison3">Poison 3</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="poison" value="poison4" id="poison4">
+                <label class="form-check-label" for="poison4">Poison 4</label>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <h3>防御类型：</h3>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="attack_type" value="attack1" id="attack1">
+                <label class="form-check-label" for="attack1">Attack Type 1</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="attack_type" value="attack2" id="attack2">
+                <label class="form-check-label" for="attack2">Attack Type 2</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="attack_type" value="attack3" id="attack3">
+                <label class="form-check-label" for="attack3">Attack Type 3</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="attack_type" value="attack4" id="attack4">
+                <label class="form-check-label" for="attack4">Attack Type 4</label>
+            </div>
+        </div>
+
+
+        <br>
+        <input type="button" value="Submit" onclick="submitForm1()">
+    </form>
+    <br>
+    <script>
+        function submitForm1() {
+            var formData = $("#path").serialize();
+            $.ajax({
+                type: "POST",
+                url: "/test/ajax_path_dealer/",  // 这是将请求发送到的URL
+                data: formData,
+                beforeSend: function(xhr, settings) {
+                    xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");  // 在请求头中设置CSRF令牌
+                },
+                success: function(response) {
+                    // 创建一个文本框并将返回的数据填充到文本框中
+                    var textarea = $('<textarea>').attr('rows', '10').attr('cols', '50').text(JSON.stringify(response));
+                    // 清空页面中的旧文本框，并将新的文本框添加到页面中
+                    $('#responseContainer').empty().append(textarea);
+                },
+                error: function(xhr, errmsg, err) {
+                    console.log(xhr.status + ": " + xhr.responseText);  // 打印错误信息到控制台
+                }
+            });
+        }
+
+
+
+
+
+
+
+
+    </script>
+    <!-- 添加一个容器用于显示返回的数据 -->
+    <div id="responseContainer" class="form-control" style="white-space: nowrap;"></div>
+</body>
+</html>
+
+
+
+
+        
+          
+    
+
+
+
+
+

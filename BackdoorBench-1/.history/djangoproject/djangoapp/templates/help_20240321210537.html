@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <title>Backdoor Shield</title>
+    
+    <!-- Meta -->
+	{% load static %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="Portal - Bootstrap 5 Admin Dashboard Template For Developers">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
+    <link rel="shortcut icon" href="favicon.ico"> 
+    
+    <!-- FontAwesome JS-->
+    <script defer src="../static/assets/plugins/fontawesome/js/all.min.js"></script>
+    
+    <!-- App CSS -->  
+	<link rel="shortcut icon" href="{% static 'assets/images/shield.ico'%}"> 
+    <link id="theme-style" rel="stylesheet" href="../static/assets/css/portal.css">
+
+</head> 
+
+<body class="app">   	
+   <header class="app-header fixed-top">
+        <div class="app-header-inner">
+	        <div class="container-fluid py-2">
+		        <div class="app-header-content">
+		            <div class="row justify-content-between align-items-center">
+
+				    <div class="col-auto">
+					    <a id="sidepanel-toggler" class="sidepanel-toggler d-inline-block d-xl-none" href="#">
+						    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" role="img"><title>Menu</title><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg>
+					    </a>
+				    </div><!--//col-->
+		            <div class="search-mobile-trigger d-sm-none col">
+			            <svg class="svg-inline--fa fa-magnifying-glass search-mobile-trigger-icon" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="magnifying-glass" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M500.3 443.7l-119.7-119.7c27.22-40.41 40.65-90.9 33.46-144.7C401.8 87.79 326.8 13.32 235.2 1.723C99.01-15.51-15.51 99.01 1.724 235.2c11.6 91.64 86.08 166.7 177.6 178.9c53.8 7.189 104.3-6.236 144.7-33.46l119.7 119.7c15.62 15.62 40.95 15.62 56.57 0C515.9 484.7 515.9 459.3 500.3 443.7zM79.1 208c0-70.58 57.42-128 128-128s128 57.42 128 128c0 70.58-57.42 128-128 128S79.1 278.6 79.1 208z"></path></svg><!-- <i class="search-mobile-trigger-icon fas fa-search"></i> Font Awesome fontawesome.com -->
+			        </div><!--//col-->
+		            <div class="app-search-box col">
+		                <form class="app-search-form">   
+							<input type="text" placeholder="Search..." name="search" class="form-control search-input">
+							<button type="submit" class="btn search-btn btn-primary" value="Search"><i class="fas fa-search"></i></button> 
+				        </form>
+		            </div><!--//app-search-box-->
+
+		            <div class="app-utilities col-auto">
+			            <div class="app-utility-item app-user-dropdown dropdown">
+				            <a class="dropdown-toggle" id="user-dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><img src="../static/assets/images/user.png" alt="user profile"></a>
+				            <ul class="dropdown-menu" aria-labelledby="user-dropdown-toggle">
+								
+								<li><a class="dropdown-item" href="settings.html">Settings</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" href="login.html">Log Out</a></li>
+							</ul>
+			            </div><!--//app-user-dropdown-->
+		            </div><!--//app-utilities-->
+		        </div><!--//row-->
+	            </div><!--//app-header-content-->
+	        </div><!--//container-fluid-->
+        </div><!--//app-header-inner-->
+        <div id="app-sidepanel" class="app-sidepanel sidepanel-visible">
+	        <div id="sidepanel-drop" class="sidepanel-drop"></div>
+	        <div class="sidepanel-inner d-flex flex-column">
+		        <a href="#" id="sidepanel-close" class="sidepanel-close d-xl-none">×</a>
+		        <div class="app-branding">
+		            <a class="app-logo" href="{% url 'index'%}"><img class="logo-icon me-2" src="../static/assets/images/app-logo.svg" alt="logo"><span class="logo-text">后门盾</span></a>
+
+		        </div><!--//app-branding-->
+
+			    <nav id="app-nav-main" class="app-nav app-nav-main flex-grow-1">
+				    <ul class="app-menu list-unstyled accordion" id="menu-accordion">
+					    <li class="nav-item">
+					        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+					        <a class="nav-link" href="{% url 'index'%}">
+						        <span class="nav-icon">
+						        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-house-door" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+		  <path fill-rule="evenodd" d="M7.646 1.146a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5H9.5a.5.5 0 0 1-.5-.5v-4H7v4a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6zM2.5 7.707V14H6v-4a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4h3.5V7.707L8 2.207l-5.5 5.5z"></path>
+		  <path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"></path>
+		</svg>
+						         </span>
+		                         <span class="nav-link-text">Overview</span>
+					        </a><!--//nav-link-->
+					    </li><!--//nav-item-->
+                        <li class="nav-item">
+					        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+					        <a class="nav-link" href="{% url 'orders' %}">
+						        <span class="nav-icon">
+						        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-card-list" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M14.5 3h-13a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"></path>
+  <path fill-rule="evenodd" d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5z"></path>
+  <circle cx="3.5" cy="5.5" r=".5"></circle>
+  <circle cx="3.5" cy="8" r=".5"></circle>
+  <circle cx="3.5" cy="10.5" r=".5"></circle>
+</svg>
+						         </span>
+		                         <span class="nav-link-text">History</span>
+					        </a><!--//nav-link-->
+					    </li><!--//nav-item-->
+
+					    <!--//nav-item-->
+					    <li class="nav-item has-submenu">
+					        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+					        
+
+					    </li><!--//nav-item-->
+
+
+
+					    <li class="nav-item">
+					        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+					        <a class="nav-link" href="{% url 'charts' %}">
+						        <span class="nav-icon">
+						        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bar-chart-line" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+	  <path fill-rule="evenodd" d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7H7v7h2zm-5 0v-3H2v3h2z"></path>
+	</svg>
+						         </span>
+		                         <span class="nav-link-text">Charts</span>
+					        </a><!--//nav-link-->
+					    </li><!--//nav-item-->
+
+					   <li class="nav-item">
+					        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+					        <a class="nav-link active" href="{% url 'help' %}">
+						        <span class="nav-icon">
+						        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-question-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+  <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"></path>
+</svg>
+						         </span>
+		                         <span class="nav-link-text">Help</span>
+					        </a><!--//nav-link-->
+					    </li><!--//nav-item-->
+
+				    </ul><!--//app-menu-->
+			    </nav><!--//app-nav-->
+			    <div class="app-sidepanel-footer">
+				    <nav class="app-nav app-nav-footer">
+					    <ul class="app-menu footer-menu list-unstyled">
+
+						    <li class="nav-item">
+						        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+						        <a class="nav-link" href="#">
+							        <span class="nav-icon">
+							            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-file-person" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+	  <path fill-rule="evenodd" d="M12 1H4a1 1 0 0 0-1 1v10.755S4 11 8 11s5 1.755 5 1.755V2a1 1 0 0 0-1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z"></path>
+	  <path fill-rule="evenodd" d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
+	</svg>
+							        </span>
+			                        <span class="nav-link-text">License</span>
+						        </a><!--//nav-link-->
+						    </li><!--//nav-item-->
+					    </ul><!--//footer-menu-->
+				    </nav>
+			    </div><!--//app-sidepanel-footer-->
+
+	        </div><!--//sidepanel-inner-->
+	    </div><!--//app-sidepanel-->
+    </header><!--//app-header-->
+
+
+    
+    <div class="app-wrapper">
+	    
+	    <div class="app-content pt-3 p-md-3 p-lg-4">
+		    <div class="container-xl">
+			    
+			    <h1 class="app-page-title">帮助中心</h1>
+                <div class="app-card app-card-accordion shadow-sm mb-4">
+				    <div class="app-card-header p-4 pb-2  border-0">
+				       <h4 class="app-card-title">使用手册</h4>
+				    </div><!--//app-card-header-->
+				    <div class="app-card-body p-4 pt-0">
+					    <div id="faq1-accordion" class="faq1-accordion faq-accordion accordion">
+						    
+						    <div class="accordion-item">
+							    <h2 class="accordion-header" id="faq1-heading-1">
+							      <button class="accordion-button btn btn-link" type="button" data-bs-toggle="collapse"  data-bs-target="#faq1-1" aria-expanded="false" aria-controls="faq1-1">
+							        我将如何使用此防御系统？
+							      </button>
+							    </h2>
+							    <div id="faq1-1" class="accordion-collapse collapse border-0" aria-labelledby="faq1-heading-1">
+							        <div class="accordion-body text-start p4">
+							            在首页界面的下方，你可以选择使用检测工具、处理中毒数据集和处理中毒模型。点击进入相应的界面后，上传相关文件后，等候系统处理
+							        </div>
+							    </div>
+							</div><!--//accordion-item-->
+						    
+						    <div class="accordion-item">
+							    <h2 class="accordion-header" id="faq1-heading-2">
+							      <button class="accordion-button btn btn-link" type="button" data-bs-toggle="collapse"  data-bs-target="#faq1-2" aria-expanded="false" aria-controls="faq1-2">
+							       我如何下载防御处理后的数据集和模型？
+							      </button>
+							    </h2>
+							    <div id="faq1-2" class="accordion-collapse collapse border-0" aria-labelledby="faq1-heading-2">
+							        <div class="accordion-body text-start p4">
+							            您可以点击orders导航栏，在orders界面，您可以查看所有您上传处理的记录，当相应的命令处理完成后，请点击查看按钮，您即可进入处理结果的详细界面，下载原文件、处理结果和日志文件。
+							        </div>
+							    </div>
+							</div><!--//accordion-item-->
+						    
+						    
+						    <div class="accordion-item">
+							    <h2 class="accordion-header" id="faq1-heading-3">
+							      <button class="accordion-button btn btn-link" type="button" data-bs-toggle="collapse"  data-bs-target="#faq1-3" aria-expanded="false" aria-controls="faq1-3">
+							       我将如何设置系统界面使用的语言？
+							      </button>
+							    </h2>
+							    <div id="faq1-3" class="accordion-collapse collapse border-0" aria-labelledby="faq1-heading-3">
+							        <div class="accordion-body text-start p4">
+							           请您点击用户管理界面，在此处，你可以更改您的个人信息，包括头像，名称和邮箱。于此同时，您也可以更改您的账号密码和系统使用的语言包。
+							        </div>
+							    </div>
+							</div><!--//accordion-item-->
+							
+							<div class="accordion-item">
+							    <h2 class="accordion-header" id="faq1-heading-4">
+							      <button class="accordion-button btn btn-link" type="button" data-bs-toggle="collapse"  data-bs-target="#faq1-4" aria-expanded="false" aria-controls="faq1-4">
+							      我将如何使用画图工具，绘制.csv文件的统计图？
+                                  </button>
+							    </h2>
+							    <div id="faq1-4" class="accordion-collapse collapse border-0" aria-labelledby="faq1-heading-4">
+							        <div class="accordion-body text-start p4">
+							          请您点击chart界面，在此界面中，您可以上传您想绘制的.csv文件，并要确定.csv文件的横坐标为x，纵坐标为y。上传成功后即可画出统计图。
+							        </div>
+							    </div>
+							</div><!--//accordion-item-->
+							
+							<div class="accordion-item">
+							    <h2 class="accordion-header" id="faq1-heading-5">
+							      <button class="accordion-button btn btn-link" type="button" data-bs-toggle="collapse"  data-bs-target="#faq1-5" aria-expanded="false" aria-controls="faq1-5">
+							        我将如何反馈使用信息？
+							      </button>
+							    </h2>
+							    <div id="faq1-5" class="accordion-collapse collapse border-0" aria-labelledby="faq1-heading-5">
+							        <div class="accordion-body text-start p4">
+							            请您将详细的反馈信息发送至邮箱123456@gmail.com，我们将在7个工作日内给您回复。
+							        </div>
+							    </div>
+							</div><!--//accordion-item-->
+
+							                  
+	                    </div><!--//faq1-accordion-->
+				    </div><!--//app-card-body-->
+				</div><!--//app-card-->
+
+				<div class="row g-4">
+					<div class="col-12 col-md-6">
+						<div class="app-card app-card-basic d-flex flex-column align-items-start shadow-sm">
+						    <div class="app-card-header p-3 border-bottom-0">
+						        <div class="row align-items-center gx-3">
+							        <div class="col-auto">
+								        <div class="app-icon-holder icon-holder-mono">
+										    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-headset" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M8 1a5 5 0 0 0-5 5v4.5H2V6a6 6 0 1 1 12 0v4.5h-1V6a5 5 0 0 0-5-5z"></path>
+  <path d="M11 8a1 1 0 0 1 1-1h2v4a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V8zM5 8a1 1 0 0 0-1-1H2v4a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V8z"></path>
+  <path fill-rule="evenodd" d="M13.5 8.5a.5.5 0 0 1 .5.5v3a2.5 2.5 0 0 1-2.5 2.5H8a.5.5 0 0 1 0-1h3.5A1.5 1.5 0 0 0 13 12V9a.5.5 0 0 1 .5-.5z"></path>
+  <path d="M6.5 14a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2h-1a1 1 0 0 1-1-1z"></path>
+</svg>
+									    </div><!--//icon-holder-->
+						                
+							        </div><!--//col-->
+							        <div class="col-auto">
+								        <h4 class="app-card-title">需要更多的帮助?</h4>
+							        </div><!--//col-->
+						        </div><!--//row-->
+						    </div><!--//app-card-header-->
+						    <div class="app-card-body px-4">
+							    
+							    <div class="intro mb-3">请和我们联系</div>
+							    <ul class="list-unstyled">
+								    <li><strong>Tel:</strong> 18940937686</li>
+								    <li><strong>Email:</strong> <a href="mailto:hzzzzli@outlook.com">hzzzzli@outlook.com</a></li>
+							    </ul>
+						    </div><!--//app-card-body-->
+						    
+						</div><!--//app-card-->
+					</div><!--//col-->
+					<div class="col-12 col-md-6">
+						<div class="app-card app-card-basic d-flex flex-column align-items-start shadow-sm">
+						    <div class="app-card-header p-3 border-bottom-0">
+						        <div class="row align-items-center gx-3">
+							        <div class="col-auto">
+								        <div class="app-icon-holder icon-holder-mono">
+										    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-life-preserver" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M14.43 10.772l-2.788-1.115a4.015 4.015 0 0 1-1.985 1.985l1.115 2.788a7.025 7.025 0 0 0 3.658-3.658zM5.228 14.43l1.115-2.788a4.015 4.015 0 0 1-1.985-1.985L1.57 10.772a7.025 7.025 0 0 0 3.658 3.658zm9.202-9.202a7.025 7.025 0 0 0-3.658-3.658L9.657 4.358a4.015 4.015 0 0 1 1.985 1.985l2.788-1.115zm-8.087-.87L5.228 1.57A7.025 7.025 0 0 0 1.57 5.228l2.788 1.115a4.015 4.015 0 0 1 1.985-1.985zM8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm0-5a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
+</svg>
+									    </div><!--//icon-holder-->
+						                
+							        </div><!--//col-->
+							        <div class="col-auto">
+								        <h4 class="app-card-title">安全事项</h4>
+							        </div><!--//col-->
+						        </div><!--//row-->
+						    </div><!--//app-card-header-->
+						    <div class="app-card-body px-4">
+							    
+							    <div class="intro mb-3">为保障您的数据安全，请注意以下事项</div>
+							    <ul class="list-unstyled">
+								    <li>
+									    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check2 text-primary me-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+	  <path fill-rule="evenodd" d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path>
+	</svg> 
+                                        请保存您已经处理过的文件，以免丢失
+                                    </li>
+                                    <li>
+									    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check2 text-primary me-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+	  <path fill-rule="evenodd" d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path>
+	</svg> 
+                                        请您确定所有命令已经运行完毕
+                                    </li>
+                                     <li>
+									    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check2 text-primary me-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+	  <path fill-rule="evenodd" d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path>
+	</svg> 
+                                       请您记住您的账号和密码
+                                    </li>
+
+							    </ul>
+						    </div><!--//app-card-body-->
+						    
+						</div><!--//app-card-->
+					</div><!--//col-->
+				</div><!--//row-->
+			    
+		    </div><!--//container-fluid-->
+	    </div><!--//app-content-->
+	    
+
+	    
+    </div><!--//app-wrapper-->    					
+
+ 
+    <!-- Javascript -->          
+    <script src="../static/assets/plugins/popper.min.js"></script>
+    <script src="../static/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    
+    <!-- Page Specific JS -->
+    <script src="../static/assets/js/app.js"></script>
+
+</body>
+</html> 
+
