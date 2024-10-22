@@ -209,7 +209,7 @@ cifar10、cifar100、gtsrb、tiny
 * Apache : https://cn.linux-console.net/?p=14999
 * Public IP address and domain name
 * Django need to be installed
-If your server's operating system is Centos-7, you need to configure your yum correctly: https://zhuanlan.zhihu.com/p/719952763
+* If your server's operating system is Centos-7, you need to configure your yum correctly: https://zhuanlan.zhihu.com/p/719952763
 
 
 
