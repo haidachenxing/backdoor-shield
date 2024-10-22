@@ -189,13 +189,27 @@ cifar10、cifar100、gtsrb、tiny
 
 
 # Project running screenshots (main page)
-<img src="BackdoorBench-1/pic/图片1.png"/>
-<img src="BackdoorBench-1/pic/图片2.png"/>
-<img src="BackdoorBench-1/pic/图片3.png"/>
-<img src="BackdoorBench-1/pic/图片4.png"/>
-<img src="BackdoorBench-1/pic/图片5.png"/>
-<img src="BackdoorBench-1/pic/图片6.png"/>
 
+<div  align="center"> 
+<img src="BackdoorBench-1/pic/图片1.png"/>
+  
+<img src="BackdoorBench-1/pic/图片2.png"/>
+
+<img src="BackdoorBench-1/pic/图片3.png"/>
+
+<img src="BackdoorBench-1/pic/图片4.png"/>
+
+<img src="BackdoorBench-1/pic/图片5.png"/>
+
+<img src="BackdoorBench-1/pic/图片6.png"/>
+</div>
+
+# How to use it in your web server?
+
+* Apache : https://cn.linux-console.net/?p=14999
+* Public IP address and domain name
+* Django need to be installed
+If your server's operating system is Centos-7, you need to configure your yum correctly: https://zhuanlan.zhihu.com/p/719952763
 
 
 
